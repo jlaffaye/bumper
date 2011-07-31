@@ -137,8 +137,9 @@ func getPort(origin string) *Port {
 
 	// If it is in build AND run depends, it might also link to the lib
 	if strings.Index(lines[1], portOrigin) != -1 &&
-		strings.Index(lines[1], portOrigin) != -1 {
+		strings.Index(lines[2], portOrigin) != -1 {
 		p.ToBump = true
+		fmt.Printf("\tReview: %s\n", p.Origin)
 	}
 
 	p.PortRevision, err = strconv.Atoi(strings.TrimSpace(lines[3]))
